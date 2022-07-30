@@ -1,0 +1,19 @@
+[package]
+name = "esp-rainmaker"
+version = "0.1.0"
+edition = "2021"
+# links = "esp_idf_rainmaker"
+
+[[package.metadata.esp-idf-sys.extra_components]]
+component_dirs = ["vendor/components/esp-insights/components", "vendor/components"]
+bindings_header = "src/bindings.h"
+
+[dependencies]
+esp-idf-sys = { features = ["binstart"], git = "https://github.com/esp-rs/esp-idf-sys", rev = "db3254a9661206be82566aef7f5de1c1b354ca3e" } #, branch = "feature/extra-components" 
+
+[patch.crates-io]
+embuild = { git = "https://github.com/esp-rs/embuild" }
+
+[build-dependencies]
+embuild = { git = "https://github.com/esp-rs/embuild" }
+anyhow = "1"
